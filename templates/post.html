@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}<title>新增(驗證資料)</title>{% endblock %}
+{% block content %}
+
+<main>
+	<div class="container">
+	<h2>document 資料表新增</h2>
+		<form action="." method="POST" name="form1">
+			{% csrf_token %}
+			<table class="table table-striped table-hover">
+		  		<tr><th >Class</th><td >{{postform.cClassName}}</td></tr>
+			  	<tr><th>Description</th><td>{{postform.cClassDescription}}</td></tr>
+				<tr><th>Overview</th><td>{{postform.cClassOverview}}</td></tr>
+				<tr><th>Author</th><td>{{postform.cAuthor}}</td></tr>
+			</table>
+			<input type="submit" name="button" id="button" value="送出">
+			<input type="reset" name="button2" id="button2" value="重設">
+			<span style="color:red">{{message}}</span>
+		</form>
+	</div>
+</main>
+{% endblock %}

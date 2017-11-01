@@ -1,0 +1,64 @@
+<!-- base.html -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+		{% load staticfiles %}
+    	<link href="{% static "css/style.css" %}" rel="stylesheet" type="text/css" />		
+
+		{% block title %}{% endblock %}
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<meta name="description" content="myVideo autotest document">
+		<meta name="author" content="KuanWei">
+
+		<title>Autotest document</title>
+
+	</head>
+	<body>
+		
+		<header>
+			<nav class="navbar navbar-inverse">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<a class="navbar-brand" href="/index/">Autotest document</a>
+					</div>
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a class="nav-link" href="/index/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/listall/" title="編輯">編輯</a>
+						</li>
+					</ul>
+					<!-- Show crrent date -->
+					<p class="navbar-text" id="timeArea"></p>
+				</div>
+			</nav>
+		</header>
+
+		{% block content %} {% endblock %}
+
+		<script>
+			var nowTime = new Date();
+			var tY = nowTime.getFullYear();
+			var tM = nowTime.getMonth() + 1;
+			var tD = nowTime.getDate();
+			var tW = nowTime.getDay();
+	
+			switch( tW ){
+				case 0: tW = '日';   break;
+				case 1: tW = '一';   break;
+				case 2: tW = '二';   break;
+				case 3: tW = '三';   break;
+				case 4: tW = '四';   break;
+				case 5: tW = '五';   break;
+				case 6: tW = '六';   break;
+			}
+
+			nowTimeString = tY+'年'+tM+'月'+tD+'日星期'+tW;
+			document.getElementById('timeArea').innerHTML = nowTimeString;
+		</script>
+	</body>
+</html>		

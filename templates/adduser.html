@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}<title>新增會員</title>{% endblock %}
+{% block content %}
+  <h2>新增會員</h2>
+  <form action="/adduser/username/email@email.com/password/save" method="POST" name="form1">
+	{% csrf_token %}
+	<table border="1" cellspacing="1" cellpadding="4">
+	  <tr>
+		<th>username</th>
+		<td ><input type="text" id="username" name="username" value="username"></td>
+	  </tr>		  
+	  <tr>
+		<th>Email</th>
+		<td><input type="text" id="email" name="email" value="email"></td>
+	  </tr>
+	  <tr>
+		<th >Overview</th>
+		<td><input type="text" id="password" name="password" value="password"></td>
+	  </tr>
+	  <tr>
+		<th colspan="2" align="center">
+		  <input type="submit" name="button" id="button" value="送出">
+		  <input type="reset" name="button2" id="button2" value="重設"></th>
+	  </tr>
+	</table>
+	<span style="color:red">{{message}}</span>
+  </form>
+{% endblock %}

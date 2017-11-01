@@ -1,0 +1,51 @@
+{% extends 'base.html' %} 
+{% block title %}{% endblock %} 
+{% block content %}
+
+<main>
+	<div class="container">
+		<div class="row">
+
+			<div class="col-md-3">
+				<div class="sidebar">
+					<h4>Classes</h4>
+					<h5>Test manager</h5>
+					
+					<ul id="class-list">
+						{% for docuement in documents %}	
+						<li><a href="/detail/{{docuement.id}}/">{{ docuement.cClassName }}</a></li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+
+			<div class="col-md-9">
+				<div class="container">
+					<div class="blog-header">
+						<p class="lead">Class</p>
+						<h1 id="topic-heading">{{ unit.cClassName }}</h1>
+						<div id="topic-description">{{ unit.cClassDescription }}</div>
+						<hr>
+					</div>
+
+					<h2>Overview</h2>
+					<p class="blog-post-meta">{{ unit.cCreateTime }} by <a href="#">{{ unit.cAuthor }}</a></p>
+					<p id="overview">{{ unit.cClassOverview}}</p>
+
+					<hr />
+					<div class="alt-light">
+						{% for function in functions %}
+						<div class='function-list'>
+							<a href='#' class='function-title'><span class='lead'>{{function.functionName}}</span></a>
+							<div class='function-description'>
+								<span class='lead'>{{function.functionDescription}}</span>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'base.html' %} 
+{% block title %}{% endblock %} 
+{% block content %}
+
+<main>
+	<div class="container">
+		<h2>顯示 document 資料表所有資料</h2>
+		<a href="/post/" title "新增">新增</a>
+		<table class="table table-striped table-hover">
+			<th>編號</th>
+			<th>Class</th>
+			<th>Description</th>
+			<th>Overview</th>
+			<th>Action</th>
+			{% for document in documents %}
+				<tr>
+					<td>{{ document.id }} </td>
+					<td>{{ document.cClassName }} </td>
+					<td>{{ document.cClassDescription}} </td>
+					<td>{{ document.cClassOverview }} </td>	
+					<td>
+						<a href="/edit/{{document.id}}/load" title="編輯">編輯</a>
+						<a href="/delete/{{document.id}}/" title="刪除">刪除</a>
+					</td>
+				</tr>
+			{% endfor %}
+		</table>
+	</div>
+</main>
+{% endblock %}
