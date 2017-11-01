@@ -1,6 +1,8 @@
 # Document-Manager-Python
 
-This is my first Python project using Django framewrok
+This is my first Python project using Django framewrok.
+This application provides the basic development document management with CRUD functions.
+I hop this project could be a good example for the beginner of Python and Django.
 
 ## Getting Started
 
